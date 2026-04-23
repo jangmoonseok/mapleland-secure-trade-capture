@@ -1,0 +1,215 @@
+:root {
+    --bg-color: #0f172a;
+    --panel-bg: rgba(30, 41, 59, 0.7);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent-color: #10b981;
+    --error-color: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-color);
+    background-image: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.app-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.app-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.main-content {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.capture-section, .form-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.glass-panel {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.glass-panel:hover {
+    transform: translateY(-2px);
+}
+
+.glass-panel h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #e2e8f0;
+}
+
+.instruction {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.submit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    margin-top: 1.5rem;
+}
+
+.submit-btn:disabled {
+    background-color: #475569;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.video-container {
+    margin-top: 1.5rem;
+    position: relative;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    border: 1px solid var(--panel-border);
+    aspect-ratio: 16/9;
+}
+
+#screenVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.capture-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--panel-border);
+    background: rgba(15, 23, 42, 0.5);
+    color: white;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-group input:read-only {
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.stats-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.stat-input {
+    flex: 1;
+}
+
+.status-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+}
+.status-error { color: var(--error-color); }
+.status-success { color: var(--accent-color); }
+.status-processing { color: var(--primary-color); }
